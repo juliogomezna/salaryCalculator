@@ -17,13 +17,16 @@ public class DefaultSalaryCalculatorResource implements SalaryCalculatorResource
     @Override
     public Response get() {
 
-        return Response.ok().type("application/json").entity(this.salaryService.getEmployees()).build();
+        Response resp= Response.ok().type("application/json").entity(this.salaryService.getEmployees())
+      .build();
+        resp.
 
     }
 
     @Override
     public Response getById(String orderId) {
-        return Response.ok().type("application/json").entity(this.salaryService.getEmployeeById(Integer.parseInt(orderId))).build();
+        return Response.ok().type("application/json")
+        .entity(this.salaryService.getEmployeeById(Integer.parseInt(orderId))).header("Access-Control-Allow-Origin", "*").build();
     }
 
 }

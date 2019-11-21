@@ -23,22 +23,17 @@
 	</context-param>
 
 	<!-- To enable CORS support in your application -->
-	<filter>
-		<filter-name>CORS</filter-name>
-		<filter-class>com.thetransactioncompany.cors.CORSFilter</filter-class>
-		<async-supported>true</async-supported> <!-- filter supports asynchronous processing -->
 
-		<!-- Enable CORS for REST HTTP methods -->
-		<init-param>
-			<param-name>cors.supportedMethods</param-name>
-			<param-value>GET,PUT,POST,DELETE,HEAD,OPTIONS</param-value>
-		</init-param>
-	</filter>
 
-	<filter-mapping>
-		<filter-name>CORS</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
+  <filter>
+    <filter-name>CorsFilter</filter-name>
+    <filter-class>com.massglobal.salarycalculator.CORSFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>CorsFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
 
 	<servlet>
 		<servlet-name>jerseyServlet</servlet-name>
